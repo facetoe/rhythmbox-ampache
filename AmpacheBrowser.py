@@ -160,7 +160,8 @@ class SongsHandler(xml.sax.handler.ContentHandler):
                         if (GLib.Date.valid_year(int(self.__text))):
                                 self.__year = GLib.Date.new_dmy(1, 1, int(self.__text)).get_julian()
                 elif name == 'time':
-                        self.__time = int(self.__text)
+                        if self.__text:
+                                self.__time = int(self.__text)
                 elif name == 'size':
                         self.__size = int(self.__text)
                 elif name == 'rating':
